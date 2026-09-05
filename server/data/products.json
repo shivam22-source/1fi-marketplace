@@ -1,0 +1,55 @@
+[
+  {
+    "id": "p1",
+    "name": "Samsung Galaxy S24",
+    "brand": "Samsung",
+    "image": "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=600&q=80",
+    "price": 74999,
+    "description": "Flagship smartphone with AI-powered camera, 120Hz display, and all-day battery life.",
+    "variants": ["128GB / Onyx Black", "256GB / Marble Grey"],
+    "emiPlans": [
+      { "id": "e1", "months": 3, "interestPct": 0, "monthlyAmount": 24999 },
+      { "id": "e2", "months": 6, "interestPct": 2, "monthlyAmount": 12750 },
+      { "id": "e3", "months": 12, "interestPct": 5, "monthlyAmount": 6562 }
+    ]
+  },
+  {
+    "id": "p2",
+    "name": "Apple MacBook Air M2",
+    "brand": "Apple",
+    "image": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=600&q=80",
+    "price": 114900,
+    "description": "13-inch Liquid Retina display, M2 chip, up to 18 hours of battery life.",
+    "variants": ["8GB / 256GB / Midnight", "16GB / 512GB / Starlight"],
+    "emiPlans": [
+      { "id": "e1", "months": 6, "interestPct": 0, "monthlyAmount": 19150 },
+      { "id": "e2", "months": 9, "interestPct": 3, "monthlyAmount": 13145 },
+      { "id": "e3", "months": 12, "interestPct": 6, "monthlyAmount": 10145 }
+    ]
+  },
+  {
+    "id": "p3",
+    "name": "Sony WH-1000XM5",
+    "brand": "Sony",
+    "image": "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=600&q=80",
+    "price": 29990,
+    "description": "Industry-leading noise cancellation with 30-hour battery life.",
+    "variants": ["Black", "Silver"],
+    "emiPlans": [
+      { "id": "e1", "months": 3, "interestPct": 0, "monthlyAmount": 9997 },
+      { "id": "e2", "months": 6, "interestPct": 2, "monthlyAmount": 5100 }
+    ]
+  },
+  {
+    "id": "p4",
+    "name": "boAt Airdopes 141",
+    "brand": "boAt",
+    "image": "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=600&q=80",
+    "price": 1299,
+    "description": "42h playback, ENx tech, IPX4 water resistance.",
+    "variants": ["Black", "Blue"],
+    "emiPlans": [
+      { "id": "e1", "months": 3, "interestPct": 0, "monthlyAmount": 433 }
+    ]
+  }
+]
