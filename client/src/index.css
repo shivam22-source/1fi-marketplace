@@ -407,6 +407,7 @@ input {
   justify-content: space-around;
   align-items: center;
   background: #ffffff;
+  border: 1px solid #eeeeee;
   border-radius: 24px;
   padding: 10px 8px 9px;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
@@ -414,6 +415,7 @@ input {
 }
 
 .nav-item {
+  position: relative;
   display: flex;
   flex: 1 1 0;
   flex-direction: column;
@@ -421,6 +423,7 @@ input {
   justify-content: center;
   min-width: 0;
   gap: 3px;
+  padding-top: 2px;
   font-size: 11px;
   color: #8c8c96;
 }
@@ -428,6 +431,18 @@ input {
 .nav-item.active {
   color: var(--purple);
   font-weight: 700;
+}
+
+.nav-item.active::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--purple);
 }
 
 .nav-icon {
@@ -447,6 +462,10 @@ input {
   padding: 60px 20px;
   text-align: center;
   color: var(--text-grey);
+}
+
+.product-grid > .placeholder-page {
+  grid-column: 1 / -1;
 }
 
 /* ---- Responsive ---- */
