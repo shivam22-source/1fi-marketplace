@@ -8,6 +8,7 @@ import ErrorState from "../components/ErrorState";
 export default function MarketplacePage() {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
+  const [search, setSearch] = useState("");
   const [status, setStatus] = useState("loading"); // loading | success | error
 
   const fetchProducts = useCallback(async () => {
@@ -25,6 +26,11 @@ export default function MarketplacePage() {
     fetchProducts();
   }, [fetchProducts]);
 
+  const filteredProducts = products.filter((product) => {
+    const text = `${product.name} ${product.brand}`.toLowerCase();
+    return text.includes(search.toLowerCase());
+  });
+
   if (status === "loading") return <Loader label="Loading marketplace..." />;
   if (status === "error")
     return (
@@ -37,40 +43,47 @@ export default function MarketplacePage() {
 
   return (
     <div>
-     <div className="search-bar">
-  <svg
-    className="search-icon"
-    width="18"
-    height="18"
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="2" />
-    <path
-      d="M16.5 16.5L21 21"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-    />
-  </svg>
-
-  <input placeholder="Search products..." />
-</div>
-
+      <div className="search-bar">
+        <svg
+          className="search-icon"
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          aria-hidden="true"
+        >
+          <circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="2" />
+          <path
+            d="M16.5 16.5L21 21"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+        </svg>
+        <input
+          type="text"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          placeholder="Search products..."
+        />
+      </div>
 
       <div className="section-heading">
         <span>1Fi Marketplace</span>
       </div>
 
       <div className="product-grid">
-        {products.map((product) => (
-          <ProductCard
-            key={product.id}
-            product={product}
-            onClick={() => navigate(`/shop/marketplace/${product.id}`)}
-          />
-        ))}
+        {filteredProducts.length > 0 ? (
+          filteredProducts.map((product) => (
+            <ProductCard
+              key={product.id}
+              product={product}
+              onClick={() => navigate(`/shop/marketplace/${product.id}`)}
+            />
+          ))
+        ) : (
+          <div className="placeholder-page">No products found.</div>
+        )}
       </div>
     </div>
   );
